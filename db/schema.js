@@ -33,7 +33,7 @@ const userSchema = new Schema({
 userSchema.pre('save', (next)=>{
     now = new Date();
     this.updated_at = now;
-    if ( !this,create_at) {
+    if ( !this.create_at) {
         this.created_at = now;
     }
     next();

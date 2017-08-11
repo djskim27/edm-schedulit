@@ -1,6 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const moment = require('moment');
 mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect('mongodb://localhost/edm-schedulit');
 
 const Artist = require('../models/artist');
 const Show = require('../models/show');
@@ -14,7 +16,7 @@ Artist.remove({}, function(err){
   console.log(err);
 });
 
-Concert.remove({}, function(err){
+Show.remove({}, function(err){
   console.log(err);
 });
 
@@ -233,7 +235,7 @@ const DizzDee = new User ({
 
 DizzDee.save((err)=> {
     if (err) console.log(err);
-    console.log('user creatred!');
+    console.log('user created!');
 })
 
 mongoose.connection.close();

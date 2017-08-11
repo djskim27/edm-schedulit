@@ -1,4 +1,4 @@
-const Schema = requre('../db/schema');
+const Schema = require('../db/schema');
 const mongoose = require('mongoose');
 
 const Artist = Schema.Artist;
