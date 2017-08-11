@@ -11,12 +11,13 @@ const artistSchema = new Schema({
     youtubeUrl: String
 });
 
-const eventSchema = new Schema({
+const showSchema = new Schema({
     name: String,
     date: Date,
     city: String,
     state: String,
     venue: String,
+    eventPage: String,
     artistList: [artistSchema]
 
 });
@@ -25,7 +26,7 @@ const userSchema = new Schema({
     userName: String,
     firstName: String,
     lastName: String,
-    eventsList: [eventSchema]
+    showsList: [showSchema]
     
 });
 
@@ -39,11 +40,11 @@ userSchema.pre('save', (next)=>{
 });
 
 const Artist = mongoose.model('Artist', artistSchema);
-const Event = mongoose.model('Event', eventSchema);
+const Show = mongoose.model('Event', showSchema);
 const User = mongoose.model('User', userSchema);
 
 module.exports = {
     Artist,
-    Event,
+    Show,
     User
 };
