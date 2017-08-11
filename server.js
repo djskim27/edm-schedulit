@@ -17,10 +17,11 @@ connection.on('error', (err) => {
     console.log('Mongoose default connection error: ' + err);
 });
 
+
 app.use(bodyParser.json());
-app.get('/', (req,res) => {
-    res.send('Hello world!')
-});
+
+const showController = require('./controllers/show.js');
+app.use('/api/shows', showController);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
