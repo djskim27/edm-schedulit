@@ -15,6 +15,8 @@ class Homepage extends Component {
     componentWillMount(){
         axios.get('/api/shows').then(res => {
             console.log(res.data);
+            this.setState({shows: res.data});
+            console.log(this.state.shows);
         })
     }
 
@@ -23,7 +25,7 @@ class Homepage extends Component {
         return(
             <div>
                 Hello from Homepage
-                <ShowList />
+                <ShowList shows = {this.state.shows}/>
             </div>
         )
     }
