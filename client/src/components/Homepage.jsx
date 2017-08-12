@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import EventList from './EventList'
+import ShowList from './ShowList'
 
 
 class Homepage extends Component {
+    
     render(){
         return(
             <div>
                 Hello from Homepage
-                <EventList />
+                <ShowList />
             </div>
         )
     }

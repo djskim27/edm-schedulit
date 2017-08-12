@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 
-class Event extends Component {
+class Show extends Component {
     render(){
         return(
             <div>
-                Hello from Event
+                Hello from Show
             </div>
         )
     }
 }
 
-export default Event
+export default Show
