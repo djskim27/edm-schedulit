@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import ShowList from './ShowList'
 
@@ -14,9 +15,9 @@ class Homepage extends Component {
 
     componentWillMount(){
         axios.get('/api/shows').then(res => {
-            console.log(res.data);
+           
             this.setState({shows: res.data});
-            console.log(this.state.shows);
+            
         })
     }
 
@@ -24,7 +25,6 @@ class Homepage extends Component {
     render(){
         return(
             <div>
-                Hello from Homepage
                 <ShowList shows = {this.state.shows}/>
             </div>
         )

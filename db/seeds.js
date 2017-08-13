@@ -28,7 +28,7 @@ User.remove({}, function(err){
 //create new artists
 const adventureClub = new Artist({
     name: 'Adventure Club',
-    imgUrl: 'https://pbs.twimg.com/profile_images/797164143598043136/gFwmhRQb.jpg',
+    imgUrl: 'http://i.imgur.com/hX4YLQW.png',
     soundCloud: 'https://soundcloud.com/adventureclub',
     youtubeUrl: 'https://www.youtube.com/watch?v=Oszb5beM4UM'
 });
@@ -40,7 +40,7 @@ adventureClub.save(function(err) {
 
 const slander = new Artist({
     name: 'Slander',
-    imgUrl: 'https://cdn-assets.insomniac.com/images/news/slander-450x675.jpg',
+    imgUrl: 'http://i.imgur.com/pcTPWYE.png',
     soundCloud: 'https://soundcloud.com/slanderofficial',
     youtubeUrl: 'https://www.youtube.com/watch?v=2MrsVQ12xao'
 });
@@ -52,7 +52,7 @@ slander.save(function(err) {
 
 const rlGrime = new Artist({
     name: 'RL Grime',
-    imgUrl: 'http://www.stealthattack.co.uk/images/RL-Grime-780x520.jpg',
+    imgUrl: 'http://i.imgur.com/1dOXN1y.png',
     soundCloud: 'https://soundcloud.com/rlgrime',
     youtubeUrl: 'https://www.youtube.com/watch?v=ElWTWoCSIk0'
 });
@@ -64,7 +64,7 @@ rlGrime.save(function(err) {
 
 const krewella = new Artist({
     name: 'Krewella',
-    imgUrl: 'http://www.billboard.com/files/media/krewella-coachella-portrait-billboard-1548.jpg',
+    imgUrl: 'http://i.imgur.com/pQGxzCQ.png',
     soundCloud: 'https://soundcloud.com/krewella',
     youtubeUrl: 'https://www.youtube.com/watch?v=MP6QDwozwiE'
 });
@@ -76,7 +76,7 @@ krewella.save(function(err) {
 
 const alanWalker = new Artist({
     name: 'Alan Walker',
-    imgUrl: 'http://weraveyou.com/wp-content/uploads/2017/04/Alan_Walker_Ignite.jpg',
+    imgUrl: 'http://i.imgur.com/gvyXeJ9.png',
     soundCloud: 'https://soundcloud.com/alanwalker',
     youtubeUrl: 'https://www.youtube.com/watch?v=DSn0GIuVbBs'
 });
@@ -138,56 +138,56 @@ krewellaAtlanta.save(function(err) {
     console.log('show created!');
 });
 
-const imagineFestivalDayOne = new Show({
-    name: 'Imagine Festival',
-    date: moment('09/22/2017', 'MM/DD/YYYY', true).format(), 
-    city: 'Hampton',
-    state: 'Georgia',
-    venue: 'Atlanta Motor Speedway',
-    eventPage: 'http://www.imaginefestival.com/',
-    artistList: []
+// const imagineFestivalDayOne = new Show({
+//     name: 'Imagine Festival',
+//     date: moment('09/22/2017', 'MM/DD/YYYY', true).format(), 
+//     city: 'Hampton',
+//     state: 'Georgia',
+//     venue: 'Atlanta Motor Speedway',
+//     eventPage: 'http://www.imaginefestival.com/',
+//     artistList: []
 
 
-});
+// });
 
-imagineFestivalDayOne.save(function(err) {
-    if (err) console.log(err);
-    console.log('show created!');
-});
+// imagineFestivalDayOne.save(function(err) {
+//     if (err) console.log(err);
+//     console.log('show created!');
+// });
 
-const imagineFestivalDayTwo = new Show({
-    name: 'Imagine Festival',
-    date: moment('09/23/2017', 'MM/DD/YYYY', true).format(), 
-    city: 'Hampton',
-    state: 'Georgia',
-    venue: 'Atlanta Motor Speedway',
-    eventPage: 'http://www.imaginefestival.com/',
-    artistList: []
-
-
-});
-
-imagineFestivalDayTwo.save(function(err) {
-    if (err) console.log(err);
-    console.log('show created!');
-});
-
-const imagineFestivalDayThree = new Show({
-    name: 'Imagine Festival',
-    date: moment('09/24/2017', 'MM/DD/YYYY', true).format(), 
-    city: 'Hampton',
-    state: 'Georgia',
-    venue: 'Atlanta Motor Speedway',
-    eventPage: 'http://www.imaginefestival.com/',
-    artistList: []
+// const imagineFestivalDayTwo = new Show({
+//     name: 'Imagine Festival',
+//     date: moment('09/23/2017', 'MM/DD/YYYY', true).format(), 
+//     city: 'Hampton',
+//     state: 'Georgia',
+//     venue: 'Atlanta Motor Speedway',
+//     eventPage: 'http://www.imaginefestival.com/',
+//     artistList: []
 
 
-});
+// });
 
-imagineFestivalDayThree.save(function(err) {
-    if (err) console.log(err);
-    console.log('show created!');
-});
+// imagineFestivalDayTwo.save(function(err) {
+//     if (err) console.log(err);
+//     console.log('show created!');
+// });
+
+// const imagineFestivalDayThree = new Show({
+//     name: 'Imagine Festival',
+//     date: moment('09/24/2017', 'MM/DD/YYYY', true).format(), 
+//     city: 'Hampton',
+//     state: 'Georgia',
+//     venue: 'Atlanta Motor Speedway',
+//     eventPage: 'http://www.imaginefestival.com/',
+//     artistList: []
+
+
+// });
+
+// imagineFestivalDayThree.save(function(err) {
+//     if (err) console.log(err);
+//     console.log('show created!');
+// });
 
 const slanderAtlanta = new Show({
     name: 'Slander',
@@ -201,7 +201,7 @@ const slanderAtlanta = new Show({
 
 });
 
-slander.save(function(err) {
+slanderAtlanta.save(function(err) {
     if (err) console.log(err);
     console.log('show created!');
 });
