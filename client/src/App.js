@@ -111,7 +111,10 @@ _setLoggedInUser = (user) => {
 
           <Route exact path="/show/:showId" component={Show}/>
 
-          <Route exact path="/user/:userId" component={UserProfile} />
+          <Route exact path="/user/:userId" render={routeProps =>
+           <UserProfile {...routeProps}
+           user={this.state.user}
+           />} />
 
           <Route exact path="/user/:userId/shows" render={routeProps => 
           <Homepage {...routeProps}
