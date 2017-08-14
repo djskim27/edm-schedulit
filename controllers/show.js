@@ -9,7 +9,7 @@ router.get('/', (req,res) => {
 });
 
 router.get('/:id', (req,res)=> {
-    Event.findById(req.params.id).then((show) => {
+    Show.findById(req.params.id).then((show) => {
         res.json(show);
     });
 })

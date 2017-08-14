@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
-import styled from 'styled-components'
-
-const Container = styled.div`
-    text-align: center;
-`
-
-const ArtistImage = styled.div`
-  
-    img {
-        height: 250px;
-        width: 250px;
-    }
-
-`
 
 class Show extends Component {
     constructor(){
@@ -26,19 +13,27 @@ class Show extends Component {
             state: '',
             venue: '',
             eventPage: '',
-            artistList: []
+            artistImage: ''
             
         }
     }
 
     componentWillMount(){
         const id = this.props.match.params.showId;
-        axios.get(`/api/show/${id}`).then((res) => {
-            console.log(res.data)
+        axios.get(`/api/shows/${id}`).then((res) => {
+            console.log(res.data.artistList[0].imgUrl)
             this.setState({
-                id: res.data._id
-
-            });
+                id: res.data._id,
+                name: res.data.name,
+                city: res.data.city,
+                state: res.data.state,
+                venue: res.data.venue,
+                eventPage: res.data.eventPage,
+                artistImage: res.data.artistList[0].imgUrl
+            })
+            
+        }).catch((err)=> {
+            console.log(err);
         })
     }
 
@@ -48,7 +43,14 @@ class Show extends Component {
    
         return(
             <div>
-                Hello World
+
+                <img src={this.state.artistImage} />
+                 
+                <h3>Name: {this.state.name}</h3>
+                <p>Location: {this.state.venue} in {this.state.city}, {this.state.state} </p>
+                <a href={this.state.eventPage} target='blank'>Buy Tickets</a>
+
+
             </div>
         )
     }

@@ -76,7 +76,7 @@ krewella.save(function(err) {
 
 const alanWalker = new Artist({
     name: 'Alan Walker',
-    imgUrl: 'http://i.imgur.com/gvyXeJ9.png',
+    imgUrl: 'http://i.imgur.com/gvyXeJ9.png?1',
     soundCloud: 'https://soundcloud.com/alanwalker',
     youtubeUrl: 'https://www.youtube.com/watch?v=DSn0GIuVbBs'
 });
@@ -229,6 +229,7 @@ const DizzDee = new User ({
     userName: 'DizzDEE',
     firstName: 'David',
     lastName: 'Kim',
+    email: 'djs.kim27@gmail.com',
     showsList: []
 
 })

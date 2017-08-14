@@ -28,7 +28,7 @@ class ShowList extends Component {
 
         
         const showComponent = orderedDates.map((show, i) => {
-        //    return <Show show = {show} key = {i}/>;
+    
             return(
                 <div key={i}>
                     
@@ -39,8 +39,9 @@ class ShowList extends Component {
                         <div>
                             {show.date}
                         </div>
-                        
+                        <Link to={`/show/${show._id}`}>
                         <img src={show.artistList[0].imgUrl} />
+                        </Link>
                       
                     </ArtistImage>
                 </div>

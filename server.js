@@ -20,8 +20,13 @@ connection.on('error', (err) => {
 
 app.use(bodyParser.json());
 
+
 const showController = require('./controllers/show.js');
 app.use('/api/shows', showController);
+
+const userController = require('./controllers/user.js');
+
+app.use('/api/users', userController);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

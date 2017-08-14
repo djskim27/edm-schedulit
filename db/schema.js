@@ -26,6 +26,7 @@ const userSchema = new Schema({
     userName: String,
     firstName: String,
     lastName: String,
+    email: String,
     showsList: [showSchema]
     
 });
