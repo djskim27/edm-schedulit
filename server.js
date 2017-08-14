@@ -26,7 +26,7 @@ app.use('/api/shows', showController);
 
 const userController = require('./controllers/user.js');
 
-app.use('/api/users', userController);
+app.use('/api/user', userController);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

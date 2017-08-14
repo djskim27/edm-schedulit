@@ -230,6 +230,7 @@ const DizzDee = new User ({
     firstName: 'David',
     lastName: 'Kim',
     email: 'djs.kim27@gmail.com',
+    password:'october27',
     showsList: []
 
 })

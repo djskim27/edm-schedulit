@@ -9,18 +9,33 @@ class Homepage extends Component {
     constructor(){
         super();
         this.state = {
-            users:"",
             shows:[],
+            user:[],
+            
+
             
         }
     }
 
     componentWillMount(){
+        if(this.props.match.params.userId) {
+            axios.get(`/api/user/${this.props.match.params.userId}`).then((res)=>{
+                console.log(res.data);
+                this.setState({user: res.data});
+                console.log(this.state.user)
+                this.props.setLoggedInUser(res.data);
+                
+            })
+        }
         axios.get('/api/shows').then(res => {
            
             this.setState({shows: res.data});
             
-        })
+        });
+
+    
+
+        
     }
 
 
