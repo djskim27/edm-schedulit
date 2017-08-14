@@ -55,6 +55,12 @@ _logIn = () => {
     })
         }
 
+_logOut = () => {
+  
+  this.setState({loggedIn: false});
+    
+  
+}
 _setLoggedInUser = (user) => {
   this.setState({
     user: user
@@ -66,17 +72,22 @@ _setLoggedInUser = (user) => {
     <Router>
       <div>
         <div>
-          <Link to="/">Home</Link>
-          <br/>
+       
           {this.state.loggedIn ? 
           <div>
-          {this.state.user.userName}
+          <Link to={`/user/${this.state.user._id}/shows`}>Home</Link>
+          <br/>
+          <Link to={`/user/${this.state.user._id}`}>{this.state.user.userName}</Link>
+          <br/>
+          <Link to="/" onClick={this._logOut}>Log Out</Link>
           </div> : 
-            <div>
-            <Link to="/signup">Sign Up</Link>
-            <br/>
-            <Link to="/login">Login</Link>
-            </div>}
+          <div>
+          <Link to="/">Home</Link>
+          <br/>
+          <Link to="/signup">Sign Up</Link>
+          <br/>
+          <Link to="/login">Login</Link>
+          </div>}
           
           
         </div>
@@ -87,22 +98,25 @@ _setLoggedInUser = (user) => {
           <Homepage {...routeProps}
             users={this.state.users}
             loggedIn={this.state.loggedIn}
-          
             />} />
+
           <Route exact path="/signup" component={Signup}/>
+
           <Route exact path="/login" render={routeProps => 
           <Login {...routeProps}
             users={this.state.users}
             loggedIn={this.state.loggedIn}
             changeLogIn={this._logIn}
             />} />
+
           <Route exact path="/show/:showId" component={Show}/>
+
           <Route exact path="/user/:userId" component={UserProfile} />
+
           <Route exact path="/user/:userId/shows" render={routeProps => 
           <Homepage {...routeProps}
             loggedIn={this.state.loggedIn}
             setLoggedInUser={this._setLoggedInUser}
-          
             />} />
 
     
