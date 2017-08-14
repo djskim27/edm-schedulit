@@ -68,9 +68,16 @@ _setLoggedInUser = (user) => {
         <div>
           <Link to="/">Home</Link>
           <br/>
-          <Link to="/signup">Sign Up</Link>
-          <br/>
-          <Link to="/login">Login</Link>
+          {this.state.loggedIn ? 
+          <div>
+          {this.state.user.userName}
+          </div> : 
+            <div>
+            <Link to="/signup">Sign Up</Link>
+            <br/>
+            <Link to="/login">Login</Link>
+            </div>}
+          
           
         </div>
        
