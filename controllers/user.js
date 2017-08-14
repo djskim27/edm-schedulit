@@ -14,24 +14,24 @@ router.get('/:id', (req,res)=> {
     });
 })
 
-// router.post('/login'),(req,res) => {
-//     const username = req.body.userName;
-//     const password = req.body.password;
-    
+router.post('/signup', (req,res) => {
+    const userName = req.body.userName;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
 
-//     User.find().then((users) => {
-//         const foundUser = users.find((user)=>{
-//             return user.username === username;
-//         });
-//         if (foundUser.password === password){
-//             res.json(foundUser)
-//         } else {
-//             res.send('INCORRECT PASSWORD');
-//         }
-//         res.json(foundUser);
-        
-//     }).catch((err)=>{
-//         res.send('username does not exist')
-//     })
-// }
+    const newUser = new User();
+    newUser.userName = userName;
+    newUser.firstName = firstName;
+    newUser.lastName = lastName;
+    newUser.email = email
+
+    newUser.save().then((user)=>{
+        res.json(user);
+    }).catch((err)=> {
+        console.log(err)
+    })
+
+});
+
 module.exports = router;
