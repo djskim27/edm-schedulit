@@ -18,7 +18,7 @@ router.get('/:userId', (req,res)=> {
 })
 
 //Get User's Events
-router.get('/:userId/showsList',(req,res)=> {
+router.get('/:userId/shows',(req,res)=> {
     User.findById(req.params.userId).then((user)=> {
         const showsList = user.showsList
         res.json(showsList);
@@ -28,7 +28,7 @@ router.get('/:userId/showsList',(req,res)=> {
 })
 
 //Show Specific User Event
-router.get('/:userId/showsList/:showId', (req,res) => {
+router.get('/:userId/shows/:showId', (req,res) => {
     User.findById(req.params.userId).then((user)=> {
         // const showsList = user.showsList
         const foundShow = user.showsList.find((show)=>{
@@ -40,7 +40,7 @@ router.get('/:userId/showsList/:showId', (req,res) => {
 })
 
 //Delete Specific User Event
-router.get('/:userId/showsList/:showId/delete', (req,res) => {
+router.get('/:userId/shows/:showId/delete', (req,res) => {
     User.findById(req.params.userId).then((user)=> {
         // const showsList = user.showsList
         const Index = user.showsList.findIndex((show)=>{

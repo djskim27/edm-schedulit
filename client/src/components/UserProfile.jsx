@@ -9,7 +9,7 @@ class UserProfile extends Component {
         super()
         this.state = {
             loggedOut: false,
-            user:{
+            user: {
                 _id: '',
                 userName: '',
                 firstName: '',
@@ -21,11 +21,11 @@ class UserProfile extends Component {
         }
     }
 
-    componentWillMount(){
-        axios.get(`/api/user/${this.props.match.params.userId}`).then((res)=> {
+    componentWillMount() {
+        axios.get(`/api/user/${this.props.match.params.userId}`).then((res) => {
             console.log(res.data)
             this.setState({
-                user:{
+                user: {
                     _id: res.data._id,
                     userName: res.data.userName,
                     firstName: res.data.firstName,
@@ -35,9 +35,11 @@ class UserProfile extends Component {
                     showsList: res.data.showsList
                 }
             })
-        }).catch((err)=> {
+        }).catch((err) => {
             console.log(err);
-        })
+        });
+
+
     }
 
     _deleteUser = () => {
@@ -45,19 +47,15 @@ class UserProfile extends Component {
         axios.get(`/api/user/${this.props.match.params.userId}/delete`).then((res) => {
             console.log('user deleted!');
             this.props.logOut();
-            this.setState({loggedOut: true});
+            this.setState({ loggedOut: true });
             this.props.updateUsers();
         }).catch((err) => {
             console.log(err);
         })
-        
+
 
     }
-    // _deleteUserAndLogOut = () => {
-    //     this.props.deleteUser();
-    //     this.props.logOut();
-    //     this.setState({ loggedOut: true })
-    // }
+
 
 
     render() {
@@ -77,14 +75,18 @@ class UserProfile extends Component {
                     <div>First Name: {firstName}</div>
                     <div>Last Name: {lastName}</div>
                     <div>Email: {email}</div>
-                    {showsList.length===0 ? <div>You have no shows!</div>: <UserShowList />}
-
                     <div>
                         <Link to={`/user/${userId}/edit`}><input type='submit' value="Edit User" /></Link>
                     </div>
                     <div>
                         <input type='submit' value="Delete User" onClick={this._deleteUser} />
                     </div>
+                    {showsList.length === 0 ?
+                        <div>You have no shows!</div>
+                        :
+                        <UserShowList
+                            shows={showsList}
+                            userId={userId} />}
                 </div>
             );
         }
