@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom'
 
 class Signup extends Component {
     constructor(){
@@ -9,7 +10,10 @@ class Signup extends Component {
             firstName: '',
             lastName: '',
             email: '',
-            password:''
+            password:'',
+            redirect: false,
+            userId:''
+           
         }
     }
 
@@ -24,10 +28,18 @@ class Signup extends Component {
     _handleSubmit = (e) => {
         e.preventDefault();
         axios.post('/api/user/signup', this.state).then((res) =>{
-            console.log('Success!');
+            console.log(res.data);
+            this.setState({
+                userId: res.data._id,
+                redirect: true
+            });
+            this.props.login(res.data);
         }).catch(err => console.log(err));
     };
     render() {
+        if(this.state.redirect){
+            return <Redirect to={`/user/${this.state.userId}`}/>
+        } else {
         return (
      <div>
                 <h1>Create A New User</h1>
@@ -53,6 +65,7 @@ class Signup extends Component {
                 </form>
             </div>
         );
+        }
     }
 }
 

@@ -66,6 +66,13 @@ _setLoggedInUser = (user) => {
     user: user
   })
 }
+
+_logInAndPassNewUser = (user) => {
+  this.setState({
+    loggedIn:true,
+    user: user
+  })
+}
   render() {
     return (
 
@@ -100,7 +107,11 @@ _setLoggedInUser = (user) => {
             loggedIn={this.state.loggedIn}
             />} />
 
-          <Route exact path="/signup" component={Signup}/>
+          <Route exact path="/signup" render={routeProps => 
+          <Signup {...routeProps}
+            login={this._logInAndPassNewUser}
+          
+          />}/>
 
           <Route exact path="/login" render={routeProps => 
           <Login {...routeProps}
