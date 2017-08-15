@@ -34,6 +34,21 @@ router.post('/signup', (req,res) => {
 
 });
 
+//edit route
+router.put('/:id', (req,res) => {
+    User.findByIdAndUpdate(req.params.id).then((user)=>{
+        user.userName = req.body.userName;
+        user.firstName = req.body.firstName;
+        user.lastName = req.body.lastName;
+        user.email = req.body.email;
+        user.save();
+
+        
+    }).catch((err) => {
+        console.log(err);
+    })
+})
+
 //delete
 router.get('/:userId/delete', (req,res) =>{
     User.findByIdAndRemove(req.params.userId).then((user) => {

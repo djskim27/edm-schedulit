@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
+import EditUserForm from './EditUserForm'
 
 class UserProfile extends Component {
     constructor(){
@@ -14,6 +15,8 @@ class UserProfile extends Component {
         this.props.logOut();
         this.setState({loggedOut: true})
     }
+
+
     render() {
         const username = this.props.user.userName;
         const firstName = this.props.user.firstName;
@@ -22,7 +25,7 @@ class UserProfile extends Component {
         const userId = this.props.user._id;
         const eventList = this.props.user.eventList
         if(this.state.loggedOut) {
-            return <Redirect to='/login' />
+            return <Redirect to='/' />
         } else {
         return (
             <div>
@@ -31,6 +34,13 @@ class UserProfile extends Component {
                 <div>Last Name: {lastName}</div>
                 <div>Email: {email}</div>
                 {!eventList? null: <div>Hello</div>}
+                <EditUserForm
+                username={username}
+                firstName={firstName}
+                lastName={lastName}
+                email={email}
+                />
+
                 <div>
                     <input type='submit' value="Delete User" onClick={this._deleteUserAndLogOut}/>
                 </div>
