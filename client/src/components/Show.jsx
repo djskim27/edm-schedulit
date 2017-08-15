@@ -37,7 +37,10 @@ class Show extends Component {
             console.log(err);
         })
     }
-
+    _addEventToUser = (e) => {
+        e.preventDefault();
+        axios.post(`/api/user/${this.props.user._id}/add/${this.props.match.params.showId}`)
+    }
 
     render(){
         
@@ -50,7 +53,7 @@ class Show extends Component {
                 <h3>Name: {this.state.name}</h3>
                 <p>Location: {this.state.venue} in {this.state.city}, {this.state.state} </p>
                 <a href={this.state.eventPage} target='blank'>Buy Tickets</a>
-                {this.props.loggedIn ? <button>Add Event</button>:null}
+                {this.props.loggedIn ? <button onClick={this._addEventToUser}>Add Event</button>:null}
 
 
             </div>

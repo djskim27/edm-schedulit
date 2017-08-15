@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/user');
 const Show = require('../models/show')
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
 router.get('/', (req,res) => {
     User.find().then((Users) => {
@@ -39,20 +39,23 @@ router.post('/signup', (req,res) => {
 router.post('/:userId/add/:showId', (req,res)=>{
     const userId = req.params.userId;
     const showId = req.params.showId;
-    const show = req.body.show;
-    const foundShow=[];
+    
     Show.findById(showId).then((show)=>{
-        foundShow.push(show);
-        console.log('success')
-    }).catch((err)=>{
-        console.log(err)
-    });
-    User.findById(userId).then((user)=>{
-        user.showList.push(foundShow[0]);
+        const newShow = show;
+        
+        
+        User.findById(userId).then((user)=>{
+        user.showsList.push(newShow);
         user.save();
+        console.log(user);
+        
     }).catch((err)=>{
         console.log(err)
     })
+    }).catch((err)=>{
+        console.log(err)
+    });
+    
 })
 
 //edit route
