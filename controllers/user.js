@@ -34,6 +34,16 @@ router.post('/signup', (req,res) => {
 
 });
 
+//delete
+router.get('/:userId/delete', (req,res) =>{
+    User.findByIdAndRemove(req.params.userId).then((user) => {
+        console.log('success');
+
+    }).catch((err) => {
+        console.log(err)
+    })
+})
+
 
 
 module.exports = router;

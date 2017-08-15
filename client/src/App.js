@@ -73,6 +73,17 @@ _logInAndPassNewUser = (user) => {
     user: user
   })
 }
+
+_deleteUser = ()=> {
+
+  axios.get(`/api/user/${this.state.user._id}/delete`).then(()=>{
+  console.log('user deleted!');
+  
+  }).catch((err)=>{
+    console.log(err);
+  })
+  
+}
   render() {
     return (
 
@@ -125,6 +136,8 @@ _logInAndPassNewUser = (user) => {
           <Route exact path="/user/:userId" render={routeProps =>
            <UserProfile {...routeProps}
            user={this.state.user}
+           deleteUser={this._deleteUser}
+           logOut={this._logOut}
            />} />
 
           <Route exact path="/user/:userId/shows" render={routeProps => 
