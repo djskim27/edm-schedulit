@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
+const Show = require('../models/show')
 const router = express.Router();
 
 router.get('/', (req,res) => {
@@ -33,6 +34,26 @@ router.post('/signup', (req,res) => {
     })
 
 });
+
+//Add Show Object into User's ShowList
+router.post('/:userId/add/:showId', (req,res)=>{
+    const userId = req.params.userId;
+    const showId = req.params.showId;
+    const show = req.body.show;
+    const foundShow=[];
+    Show.findById(showId).then((show)=>{
+        foundShow.push(show);
+        console.log('success')
+    }).catch((err)=>{
+        console.log(err)
+    });
+    User.findById(userId).then((user)=>{
+        user.showList.push(foundShow[0]);
+        user.save();
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
 
 //edit route
 router.put('/:id', (req,res) => {
