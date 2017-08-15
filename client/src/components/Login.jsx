@@ -7,9 +7,7 @@ class Login  extends Component {
 
 
     render() {
-        // if(this.props.loggedIn === true){
-        //     return <Redirect to={`/user/${this.props.userId}/shows`} />
-        // }
+      
         const users = this.props.users;
        
         
@@ -18,16 +16,7 @@ class Login  extends Component {
         return (
             <div>
                 <h1>Login</h1>
-                {/* <h1>Login</h1>
-                 <form onSubmit={this.props.login}>
-                    <div>
-                    <input name="userName" type="text" placeholder="username" required/>
-                    </div>
-                    <div>
-                    <input name="password" type="text" placeholder="password" required/>
-                    </div>
-                    <input type='submit'/>
-                </form> */}
+            
                 {users.map((user, i)=>{
                     return(
                         <div key={i}>

@@ -23,7 +23,7 @@ class UserProfile extends Component {
         const lastName = this.props.user.lastName;
         const email = this.props.user.email;
         const userId = this.props.user._id;
-        const eventList = this.props.user.eventList
+        const showsList = this.props.user.showsList
         if(this.state.loggedOut) {
             return <Redirect to='/' />
         } else {
@@ -33,7 +33,7 @@ class UserProfile extends Component {
                 <div>First Name: {firstName}</div>
                 <div>Last Name: {lastName}</div>
                 <div>Email: {email}</div>
-                {!eventList? null: <div>Hello</div>}
+                {!showsList? null: <div>Hello</div>}
                 
                 <div>
                     <Link to={`/user/${userId}/edit`}><input type='submit' value="Edit User"/></Link>

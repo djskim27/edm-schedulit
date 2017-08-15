@@ -9,8 +9,8 @@ router.get('/', (req,res) => {
     });
 });
 
-router.get('/:id', (req,res)=> {
-    User.findById(req.params.id).then((user) => {
+router.get('/:userId', (req,res)=> {
+    User.findById(req.params.userId).then((user) => {
         res.json(user);
     });
 })
@@ -42,12 +42,13 @@ router.post('/:userId/add/:showId', (req,res)=>{
     
     Show.findById(showId).then((show)=>{
         const newShow = show;
-        
+        res.send(200)
         
         User.findById(userId).then((user)=>{
         user.showsList.push(newShow);
         user.save();
         console.log(user);
+        
         
     }).catch((err)=>{
         console.log(err)
@@ -59,11 +60,11 @@ router.post('/:userId/add/:showId', (req,res)=>{
 })
 
 //edit route
-router.put('/:id', (req,res) => {
-    User.findByIdAndUpdate(req.params.id ,{userName: req.body.userName}).then((user)=>{
+router.put('/:userId', (req,res) => {
+    User.findByIdAndUpdate(req.body._id, req.body).then((user)=>{
        
-        res.json(user);
-        
+        console.log('success!')
+        res.send(200);
     }).catch((err) => {
         console.log(err);
     })
@@ -73,7 +74,7 @@ router.put('/:id', (req,res) => {
 router.get('/:userId/delete', (req,res) =>{
     User.findByIdAndRemove(req.params.userId).then((user) => {
         console.log('success');
-
+        res.send(200)
     }).catch((err) => {
         console.log(err)
     })
