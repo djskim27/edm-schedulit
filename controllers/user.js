@@ -64,7 +64,7 @@ router.put('/:userId', (req,res) => {
     User.findByIdAndUpdate(req.body._id, req.body).then((user)=>{
        
         console.log('success!')
-        res.send(200);
+        res.json(user);
     }).catch((err) => {
         console.log(err);
     })

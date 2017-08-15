@@ -49,6 +49,12 @@ componentWillMount(){
   })
 }
 
+_updateUsers = (data) => {
+  this.setState({users: data})
+}
+
+
+
 _logIn = () => {
     this.setState({
       loggedIn: true
@@ -75,16 +81,7 @@ _logInAndPassNewUser = (user) => {
   })
 }
 
-_deleteUser = ()=> {
 
-  axios.get(`/api/user/${this.state.user._id}/delete`).then(()=>{
-  console.log('user deleted!');
-  
-  }).catch((err)=>{
-    console.log(err);
-  })
-  
-}
   render() {
     return (
 
@@ -117,6 +114,7 @@ _deleteUser = ()=> {
           <Homepage {...routeProps}
             users={this.state.users}
             loggedIn={this.state.loggedIn}
+            updateUsers={this._updateUsers}
             />} />
 
           <Route exact path="/signup" render={routeProps => 
@@ -141,13 +139,15 @@ _deleteUser = ()=> {
           <Route exact path="/user/:userId" render={routeProps =>
            <UserProfile {...routeProps}
            user={this.state.user}
-           deleteUser={this._deleteUser}
+           updateUsers={this.state._updateUsers}
            logOut={this._logOut}
            />} />
 
            <Route exact path="/user/:userId/edit" render={routeProps =>
            <EditUserForm {...routeProps}
            user={this.state.user}
+           setLoggedInUser={this._setLoggedInUser}
+           
            />} />
 
 
@@ -155,6 +155,7 @@ _deleteUser = ()=> {
           <Homepage {...routeProps}
             loggedIn={this.state.loggedIn}
             setLoggedInUser={this._setLoggedInUser}
+            updateUsers={this._updateUsers}
             />} />
 
           

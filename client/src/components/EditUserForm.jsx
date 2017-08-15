@@ -51,9 +51,10 @@ class EditUserForm extends Component {
     _editUser = (e) => {
         e.preventDefault();
         axios.put(`/api/user/${this.props.user.userId}`, this.state.user).then((res)=> {
-            console.log(res.data)
-            this.setState({redirect: true})
-        });
+            console.log(this.state.user);
+            this.setState({redirect: true});
+            this.props.setLoggedInUser(this.state.user);
+        }).catch((err) => console.log(err))
        
     }
 

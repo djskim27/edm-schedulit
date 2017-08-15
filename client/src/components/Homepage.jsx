@@ -6,43 +6,52 @@ import ShowList from './ShowList'
 
 
 class Homepage extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            shows:[],
-            user:[],
-            
+            shows: [],
+            user: [],
 
-            
+
+
         }
     }
 
-    componentWillMount(){
-        if(this.props.match.params.userId) {
-            axios.get(`/api/user/${this.props.match.params.userId}`).then((res)=>{
+    componentWillMount() {
+        if (this.props.match.params.userId) {
+            axios.get(`/api/user/${this.props.match.params.userId}`).then((res) => {
                 console.log(res.data);
-                this.setState({user: res.data});
+                this.setState({ user: res.data });
                 console.log(this.state.user)
                 this.props.setLoggedInUser(res.data);
-                
+
+
             })
         }
         axios.get('/api/shows').then(res => {
-           
-            this.setState({shows: res.data});
-            
+
+            this.setState({ shows: res.data });
+
         });
 
-    
+        axios.get('/api/user').then((res) => {
+            console.log(res.data);
+            this.props.updateUsers(res.data);
+            
+        })
 
-        
+
+
+
+
+
     }
 
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <ShowList shows = {this.state.shows}/>
+                <ShowList shows={this.state.shows} />
             </div>
         )
     }
