@@ -13,7 +13,8 @@ class Show extends Component {
             state: '',
             venue: '',
             eventPage: '',
-            artistImage: ''
+            artistImage: '',
+            userId:''
             
         }
     }
@@ -49,6 +50,7 @@ class Show extends Component {
                 <h3>Name: {this.state.name}</h3>
                 <p>Location: {this.state.venue} in {this.state.city}, {this.state.state} </p>
                 <a href={this.state.eventPage} target='blank'>Buy Tickets</a>
+                {this.props.loggedIn ? <button>Add Event</button>:null}
 
 
             </div>

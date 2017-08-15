@@ -36,13 +36,9 @@ router.post('/signup', (req,res) => {
 
 //edit route
 router.put('/:id', (req,res) => {
-    User.findByIdAndUpdate(req.params.id).then((user)=>{
-        user.userName = req.body.userName;
-        user.firstName = req.body.firstName;
-        user.lastName = req.body.lastName;
-        user.email = req.body.email;
-        user.save();
-
+    User.findByIdAndUpdate(req.params.id ,{userName: req.body.userName}).then((user)=>{
+       
+        res.json(user);
         
     }).catch((err) => {
         console.log(err);

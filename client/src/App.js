@@ -132,7 +132,10 @@ _deleteUser = ()=> {
             changeLogIn={this._logIn}
             />} />
 
-          <Route exact path="/show/:showId" component={Show}/>
+          <Route exact path="/show/:showId" render={routeProps=>
+          <Show {...routeProps}
+          loggedIn={this.state.loggedIn}
+          />}/>
 
           <Route exact path="/user/:userId" render={routeProps =>
            <UserProfile {...routeProps}
