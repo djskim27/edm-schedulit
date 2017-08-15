@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 
 class UserProfile extends Component {
+    constructor(){
+        super()
+        this.state={
+            loggedOut: false
+        }
+    }
 
     _deleteUserAndLogOut = () => {
         this.props.deleteUser();
         this.props.logOut();
+        this.setState({loggedOut: true})
     }
     render() {
         const username = this.props.user.userName;
@@ -13,7 +21,9 @@ class UserProfile extends Component {
         const email = this.props.user.email;
         const userId = this.props.user._id;
         const eventList = this.props.user.eventList
-        
+        if(this.state.loggedOut) {
+            return <Redirect to='/login' />
+        } else {
         return (
             <div>
                 <div>Username: {username}</div>
@@ -26,6 +36,7 @@ class UserProfile extends Component {
                 </div>
             </div>
         );
+        }
     }
 }
 
