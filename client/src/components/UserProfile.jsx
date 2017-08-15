@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
-import EditUserForm from './EditUserForm'
+import { Redirect, Link } from 'react-router-dom'
+
 
 class UserProfile extends Component {
     constructor(){
@@ -34,13 +34,10 @@ class UserProfile extends Component {
                 <div>Last Name: {lastName}</div>
                 <div>Email: {email}</div>
                 {!eventList? null: <div>Hello</div>}
-                <EditUserForm
-                username={username}
-                firstName={firstName}
-                lastName={lastName}
-                email={email}
-                />
-
+                
+                <div>
+                    <Link to={`/user/${userId}/edit`}><input type='submit' value="Edit User"/></Link>
+                </div>
                 <div>
                     <input type='submit' value="Delete User" onClick={this._deleteUserAndLogOut}/>
                 </div>

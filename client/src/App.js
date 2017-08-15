@@ -6,6 +6,7 @@ import Show from './components/Show';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import UserProfile from './components/UserProfile'
+import EditUserForm from './components/EditUserForm'
 
 
 class App extends Component {
@@ -140,11 +141,19 @@ _deleteUser = ()=> {
            logOut={this._logOut}
            />} />
 
+           <Route exact path="/user/:userId/edit" render={routeProps =>
+           <EditUserForm {...routeProps}
+           user={this.state.user}
+           />} />
+
+
           <Route exact path="/user/:userId/shows" render={routeProps => 
           <Homepage {...routeProps}
             loggedIn={this.state.loggedIn}
             setLoggedInUser={this._setLoggedInUser}
             />} />
+
+          
 
     
 
