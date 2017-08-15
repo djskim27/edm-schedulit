@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom';
+import UserShowList from './UserShowList';
 
 
 class UserProfile extends Component {
@@ -8,14 +9,32 @@ class UserProfile extends Component {
         super()
         this.state = {
             loggedOut: false,
-            user:[]
+            user:{
+                _id: '',
+                userName: '',
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                showsList: []
+            }
         }
     }
 
     componentWillMount(){
         axios.get(`/api/user/${this.props.match.params.userId}`).then((res)=> {
             console.log(res.data)
-            this.setState({user:res.data})
+            this.setState({
+                user:{
+                    _id: res.data._id,
+                    userName: res.data.userName,
+                    firstName: res.data.firstName,
+                    lastName: res.data.lastName,
+                    email: res.data.email,
+                    password: res.data.password,
+                    showsList: res.data.showsList
+                }
+            })
         }).catch((err)=> {
             console.log(err);
         })
@@ -47,7 +66,8 @@ class UserProfile extends Component {
         const lastName = this.state.user.lastName;
         const email = this.props.user.email;
         const userId = this.props.user._id;
-        const showsList = this.props.user.showsList
+        const showsList = this.props.user.showsList;
+        console.log(showsList)
         if (this.state.loggedOut) {
             return <Redirect to='/' />
         } else {
@@ -57,7 +77,7 @@ class UserProfile extends Component {
                     <div>First Name: {firstName}</div>
                     <div>Last Name: {lastName}</div>
                     <div>Email: {email}</div>
-                    {!showsList ? null : <div>Hello</div>}
+                    {showsList.length===0 ? <div>You have no shows!</div>: <UserShowList />}
 
                     <div>
                         <Link to={`/user/${userId}/edit`}><input type='submit' value="Edit User" /></Link>

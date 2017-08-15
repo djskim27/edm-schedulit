@@ -3,6 +3,7 @@ const User = require('../models/user');
 const Show = require('../models/show')
 const router = express.Router({mergeParams: true});
 
+//Get List of Users
 router.get('/', (req,res) => {
     User.find().then((Users) => {
         res.json(Users)
@@ -15,6 +16,7 @@ router.get('/:userId', (req,res)=> {
     });
 })
 
+//Create a new user
 router.post('/signup', (req,res) => {
     const userName = req.body.userName;
     const firstName = req.body.firstName;
@@ -34,6 +36,7 @@ router.post('/signup', (req,res) => {
     })
 
 });
+
 
 //Add Show Object into User's ShowList
 router.post('/:userId/add/:showId', (req,res)=>{
@@ -59,7 +62,7 @@ router.post('/:userId/add/:showId', (req,res)=>{
     
 })
 
-//edit route
+//Edit User
 router.put('/:userId', (req,res) => {
     User.findByIdAndUpdate(req.body._id, req.body).then((user)=>{
        
@@ -70,7 +73,7 @@ router.put('/:userId', (req,res) => {
     })
 })
 
-//delete
+//Delete User
 router.get('/:userId/delete', (req,res) =>{
     User.findByIdAndRemove(req.params.userId).then((user) => {
         console.log('success');
