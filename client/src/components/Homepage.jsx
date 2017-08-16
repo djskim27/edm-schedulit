@@ -4,11 +4,16 @@ import axios from 'axios';
 import ShowList from './ShowList';
 import styled from 'styled-components';
 
-
+const OuterContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+`
 const Container = styled.div`
         margin-top: 50px;
         text-align: center;
-        width: 
+        width: 900px
     }
   `  
 
@@ -57,10 +62,11 @@ class Homepage extends Component {
 
     render() {
         return (
-           
-            <Container>
-                <ShowList shows={this.state.shows} />
-            </Container>
+           <OuterContainer>
+                <Container>
+                    <ShowList shows={this.state.shows} />
+                </Container>
+            </OuterContainer>
            
         )
     }

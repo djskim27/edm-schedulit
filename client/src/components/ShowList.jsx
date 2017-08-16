@@ -20,13 +20,6 @@ const ArtistImage = styled.div`
     }
 
 `
-const showContainer = styled.div`
-    display: inline-block;
-    padding: 20px;
-`
-const showListContainer = styled.div`
-    width: 800px;
-`
 
 class ShowList extends Component {
     
@@ -43,7 +36,7 @@ class ShowList extends Component {
         const showComponent = orderedDates.map((show, i) => {
     
             return(
-                <div key={i} style={{display: 'inline-block', padding:'30px'}}>
+                <div key={i} style={{display: 'inline-block', padding:'10px'}}>
                     
                     <ArtistImage >
                         <div>
@@ -56,6 +49,7 @@ class ShowList extends Component {
                         <img src={show.artistList[0].imgUrl} />
                         </Link>
                     </ArtistImage>
+
                 </div>
             )
         })
@@ -65,9 +59,9 @@ class ShowList extends Component {
         return(
             <div>
                 <Logo src='http://i.imgur.com/RCMqcno.png'/>
-                <showListContainer>
+                <br/>
                 {showComponent}
-                </showListContainer>
+                
             </div>
         )
     }
