@@ -14,6 +14,7 @@ const artistSchema = new Schema({
 const showSchema = new Schema({
     name: String,
     date: Date,
+    stringDate: String,
     city: String,
     state: String,
     venue: String,

@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components'
+
+const HigherContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+`
+const Container = styled.div`
+        margin-top: 50px;
+    }
+  `  
+
 
 class EditUserForm extends Component {
     constructor(){
@@ -63,8 +76,9 @@ class EditUserForm extends Component {
             return <Redirect to={`/user/${this.state.user._id}`}/>
         } else {
         return (
-            <div>
-                <h1>Edit User Form</h1>
+            <HigherContainer>
+            <Container>
+                <h1 style={{color:'white'}}>Edit User Form</h1>
                 
                     <form onSubmit={this._editUser}>
                     <div>
@@ -82,7 +96,8 @@ class EditUserForm extends Component {
                     <input type='submit'/>
                 </form>
                 
-            </div>
+            </Container>
+            </HigherContainer>
         );
         }
     }

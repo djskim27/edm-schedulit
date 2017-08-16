@@ -4,7 +4,7 @@ import Iframe from 'react-iframe'
 export default class YouTube extends Component {
     render() {
     return(
-        <Iframe url="http://www.youtube.com/embed/xDMP3i36naA"
+        <Iframe url={this.props.youtube}
         width="400px"
         height="400px"
         display="initial"

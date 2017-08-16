@@ -57,7 +57,9 @@ class Show extends Component {
             artistImage: '',
             soundcloud:'',
             youtube:'',
+            stringDate:'',
             userId: ''
+            
 
         }
     }
@@ -69,6 +71,7 @@ class Show extends Component {
             this.setState({
                 id: res.data._id,
                 name: res.data.name,
+                stringDate: res.data.stringDate,
                 city: res.data.city,
                 state: res.data.state,
                 venue: res.data.venue,
@@ -76,6 +79,7 @@ class Show extends Component {
                 artistImage: res.data.artistList[0].imgUrl,
                 soundcloud: res.data.artistList[0].soundCloud,
                 youtube: res.data.artistList[0].youtubeUrl,
+
                 
                 redirect: false
             })
@@ -108,6 +112,7 @@ class Show extends Component {
                         
                         <div style={{backgroundColor: 'rgba(46, 138, 138, 0.5)'}}>
                         <h2 style={{color: 'white'}}>Artist: {this.state.name}</h2>
+                        <h3 style={{color: 'white'}}>Date: {this.state.stringDate}</h3>
                         <h3 style={{color: 'white'}}>City/State: {this.state.city}/{this.state.state}</h3>
                         <h3 style={{color: 'white'}}>Venue: {this.state.venue}</h3>
                         <ButtonDiv>

@@ -20,6 +20,9 @@ const ArtistImage = styled.div`
     }
 
 `
+const inlineDiv = styled.div`
+background-color: rgba(102,51,153, 0.4);
+`
 
 class ShowList extends Component {
     
@@ -39,12 +42,9 @@ class ShowList extends Component {
                 <div key={i} style={{display: 'inline-block', padding:'10px'}}>
                     
                     <ArtistImage >
-                        <div>
-                            <p style={{color:'white'}}>{show.date}</p>
-                        </div>
-                        <div>
-                            <p style={{color:'white'}}>{show.name}</p>
-                        </div>
+                        <inlineDiv>
+                            <p style={{color:'white'}}>{show.stringDate} / {show.name} / {show.city}</p>
+                        </inlineDiv>
                         <Link to={`/show/${show._id}`}>
                         <img src={show.artistList[0].imgUrl} />
                         </Link>

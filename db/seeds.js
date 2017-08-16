@@ -30,7 +30,7 @@ const adventureClub = new Artist({
     name: 'Adventure Club',
     imgUrl: 'http://i.imgur.com/hX4YLQW.png',
     soundCloud: 'https://soundcloud.com/adventureclub',
-    youtubeUrl: 'https://www.youtube.com/watch?v=Oszb5beM4UM'
+    youtubeUrl: 'https://www.youtube.com/embed/JDMfpeUWS3Q'
 });
 
 adventureClub.save(function(err) {
@@ -42,7 +42,7 @@ const slander = new Artist({
     name: 'Slander',
     imgUrl: 'http://i.imgur.com/pcTPWYE.png',
     soundCloud: 'https://soundcloud.com/slanderofficial',
-    youtubeUrl: 'https://www.youtube.com/watch?v=2MrsVQ12xao'
+    youtubeUrl: 'https://www.youtube.com/embed/bPJEykXiJgk'
 });
 
 slander.save(function(err) {
@@ -54,7 +54,7 @@ const rlGrime = new Artist({
     name: 'RL Grime',
     imgUrl: 'http://i.imgur.com/1dOXN1y.png',
     soundCloud: 'https://soundcloud.com/rlgrime',
-    youtubeUrl: 'https://www.youtube.com/watch?v=ElWTWoCSIk0'
+    youtubeUrl: 'https://www.youtube.com/embed/5ICoA-NT9oQ'
 });
 
 rlGrime.save(function(err) {
@@ -66,7 +66,7 @@ const krewella = new Artist({
     name: 'Krewella',
     imgUrl: 'http://i.imgur.com/pQGxzCQ.png',
     soundCloud: 'https://soundcloud.com/krewella',
-    youtubeUrl: 'https://www.youtube.com/watch?v=MP6QDwozwiE'
+    youtubeUrl: 'https://www.youtube.com/embed/76jARSWqcdM'
 });
 
 krewella.save(function(err) {
@@ -78,7 +78,7 @@ const alanWalker = new Artist({
     name: 'Alan Walker',
     imgUrl: 'http://i.imgur.com/gvyXeJ9.png?1',
     soundCloud: 'https://soundcloud.com/alanwalker',
-    youtubeUrl: 'https://www.youtube.com/watch?v=DSn0GIuVbBs'
+    youtubeUrl: 'https://www.youtube.com/embed/2i2khp_npdE'
 });
 
 alanWalker.save(function(err) {
@@ -86,10 +86,37 @@ alanWalker.save(function(err) {
     console.log('artist created!');
 });
 
+const floss = new Artist({
+    name: 'Flosstradamus',
+    imgUrl: 'http://www.billboard.com/files/media/flosstradamus-2017-cr-justin-hollar-billboard-1548.jpg',
+    soundCloud: 'https://soundcloud.com/flosstradamus',
+    youtubeUrl: 'https://www.youtube.com/embed/OcvunrplrZc'
+});
+
+floss.save(function(err) {
+    if (err) console.log(err);
+    console.log('artist created!');
+});
+
+const martinGarrix = new Artist({
+    name: 'Martin Garrix',
+    imgUrl: 'https://images7.alphacoders.com/713/713304.jpg',
+    soundCloud: 'https://soundcloud.com/martingarrix',
+    youtubeUrl: 'https://www.youtube.com/embed/pNNMr5glICM'
+
+});
+
+martinGarrix.save(function(err) {
+    if (err) console.log(err);
+    console.log('artist created!');
+});
+
+
 //create new shows
 const adventureClubAtlanta = new Show({
     name: 'Adventure Club',
     date: moment('10/24/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate:'TUES, OCT 24',
     city: 'Atlanta',
     state: 'Georgia',
     venue: 'The Tabernacle',
@@ -107,6 +134,7 @@ adventureClubAtlanta.save(function(err) {
 const alanWalkerAtlanta = new Show({
     name: 'Alan Walker',
     date: moment('09/01/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'FRI, SEPT 1',
     city: 'Atlanta',
     state: 'Georgia',
     venue: 'Opera Night Club',
@@ -123,7 +151,8 @@ alanWalkerAtlanta.save(function(err) {
 
 const krewellaAtlanta = new Show({
     name: 'Krewella',
-    date: moment('10/19/2017', 'MM/DD/YYYY', true).format(), 
+    date: moment('10/19/2017', 'MM/DD/YYYY', true).format(),
+    stringDate: 'THURS, OCT 19', 
     city: 'Atlanta',
     state: 'Georgia',
     venue: 'Tabernacle',
@@ -191,7 +220,8 @@ krewellaAtlanta.save(function(err) {
 
 const slanderAtlanta = new Show({
     name: 'Slander',
-    date: moment('09/15/2017', 'MM/DD/YYYY', true).format(), 
+    date: moment('09/15/2017', 'MM/DD/YYYY', true).format(),
+    stringDate:'FRI, SEPT 15', 
     city: 'Atlanta',
     state: 'Georgia',
     venue: 'Opera Night Club',
@@ -209,6 +239,7 @@ slanderAtlanta.save(function(err) {
 const rlGrimeAtlanta = new Show({
     name: 'RL Grime',
     date: moment('10/31/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'TUES, OCT 31',
     city: 'Atlanta',
     state: 'Georgia',
     venue: 'Tabernacle',
@@ -222,6 +253,43 @@ rlGrimeAtlanta.save(function(err) {
     if (err) console.log(err);
     console.log('show created!');
 });
+
+const flossVegas = new Show({
+    name: 'Flosstradamus',
+    date: moment('08/18/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'FRI, AUG 18',
+    city: 'Las Vegas',
+    state: 'Nevada',
+    venue: 'Surrender Nightclub',
+    eventPage: 'https://www.ticketfly.com/purchase/event/1464890?utm_medium=946393&q=b3eaf87a-4121-45ef-98de-0ebdc28b8343&p=84194519-9e98-48df-89f2-0f982297b8f4&ts=1502903037&c=ticketfly&e=007324&rt=Safetynet&h=91c33d8391c28fdc868d15431f9718b2',
+    artistList: [floss]
+
+
+});
+
+flossVegas.save(function(err) {
+    if (err) console.log(err);
+    console.log('show created!');
+});
+
+const martinVegas = new Show({
+    name: 'Martin Garrix',
+    date: moment('10/14/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'WED, OCT 14',
+    city: 'Las Vegas',
+    state: 'Nevada',
+    venue: 'Wet Republic',
+    eventPage: 'https://edmtrain.com/nevada?event=62167&tickets',
+    artistList: [martinGarrix]
+
+
+});
+
+martinVegas.save(function(err) {
+    if (err) console.log(err);
+    console.log('show created!');
+});
+
 
 //new User
 
