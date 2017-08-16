@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+
+const Container = styled.div`
+        margin-top: 50px;
+    }
+  `  
+
 
 class Login  extends Component {
 
@@ -14,7 +22,7 @@ class Login  extends Component {
 
         
         return (
-            <div>
+            <Container>
                 <h1>Login</h1>
             
                 {users.map((user, i)=>{
@@ -25,7 +33,7 @@ class Login  extends Component {
                     )
                 })}
                 <div>Don't have an account? Sign up <Link to='/signup'>here</Link>!</div>
-            </div>
+            </Container>
         );
     }
 }

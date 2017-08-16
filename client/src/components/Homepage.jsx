@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import ShowList from './ShowList'
+import ShowList from './ShowList';
+import styled from 'styled-components';
 
 
+const Container = styled.div`
+        margin-top: 50px;
+    }
+  `  
 
 class Homepage extends Component {
     constructor() {
@@ -50,9 +55,9 @@ class Homepage extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 <ShowList shows={this.state.shows} />
-            </div>
+            </Container>
         )
     }
 }

@@ -5,30 +5,33 @@ import Homepage from './components/Homepage';
 import Show from './components/Show';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import UserProfile from './components/UserProfile'
-import EditUserForm from './components/EditUserForm'
-import {Button, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
+import UserProfile from './components/UserProfile';
+import EditUserForm from './components/EditUserForm';
+import {Button, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import styled from 'styled-components';
 
-const navbar = (
-  <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <img src='http://i.imgur.com/RCMqcno.png'/>
-      </Navbar.Brand>
-    </Navbar.Header>
-    <Nav>
-      <NavItem eventKey={1} href="#">Link</NavItem>
-      <NavItem eventKey={2} href="#">Link</NavItem>
-      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-        <MenuItem eventKey={3.1}>Action</MenuItem>
-        <MenuItem eventKey={3.2}>Another action</MenuItem>
-        <MenuItem eventKey={3.3}>Something else here</MenuItem>
-        <MenuItem divider />
-        <MenuItem eventKey={3.4}>Separated link</MenuItem>
-      </NavDropdown>
-    </Nav>
-  </Navbar>
-);
+const navBarStyle = {
+  background: "rgba(220, 115, 11, 0.5)"
+}
+
+const logoStyle = {
+  width: '100px'
+}
+
+
+const Body = styled.div`
+  background: url('https://s-media-cache-ak0.pinimg.com/originals/b6/58/41/b658411959379636d322b0e63a19bba7.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+`
+
+
+
+
+  
+
 
 
 class App extends Component {
@@ -41,28 +44,7 @@ class App extends Component {
             
         }
     }
-// _login = (e) => {
-//     e.preventDefault();
 
-//     const username = e.target.userName.value;
-//     const password = e.target.password.value;
-
-//   axios.post('/api/user/login', {username, password}).then((res) => {
-
-//     const newState = {...this.state}
-
-//     if(res.data.userName){
-//       newState.loggedIn = true;
-//       newState.userId = res.data._id;
-//       newState.userName = res.data.userName;
-//       newState.showsList = [];
-
-//     }
-//     this.setState(newState);
-//   }).catch((err)=>{
-//     console.log(err);
-//   })
-// }
 componentWillMount(){
   axios.get('/api/user').then((res)=>{
     console.log(res.data);
@@ -108,30 +90,51 @@ _logInAndPassNewUser = (user) => {
     return (
 
     <Router>
-      <div>
-        {navbar}
+      
+      <Body>
+        {this.state.loggedIn ? 
         <div>
-        <Button bsStyle="success">Success</Button>
-          {this.state.loggedIn ? 
-          <div>
-          <Link to={`/user/${this.state.user._id}/shows`}>Home</Link>
-          <br/>
-          <Link to={`/user/${this.state.user._id}`}>{this.state.user.userName}</Link>
-          <br/>
-          <Link to="/" onClick={this._logOut}>Log Out</Link>
-          </div> : 
-          <div>
-          <Link to="/">Home</Link>
-          <br/>
-          <Link to="/signup">Sign Up</Link>
-          <br/>
-          <Link to="/login">Login</Link>
-          </div>}
-          
-          
-        </div>
-       
+        <Navbar inverse collapseOnSelect fixedTop style={navBarStyle}>
+          <Navbar.Header>
+         
+            <Navbar.Brand>
+           <Link to={`/user/${this.state.user._id}/shows`}>Home</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+        
+            <Nav pullRight>
+              <NavItem eventKey={1}><Link to={`/user/${this.state.user._id}`} style={{textDecoration:'none'}}>{this.state.user.userName}</Link></NavItem>
+              <NavItem eventKey={2}><Link to="/" onClick={this._logOut} style={{textDecoration:'none'}}>Log Out</Link></NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        </div> : 
         <div>
+        <Navbar inverse collapseOnSelect fixedTop>
+          <Navbar.Header>
+         
+            <Navbar.Brand>
+           <Link to="/">Home</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+        
+            <Nav pullRight>
+              <NavItem eventKey={1}><Link to="/login" style={{textDecoration:'none'}}>Login</Link></NavItem>
+              <NavItem eventKey={2}> <Link to="/signup" style={{textDecoration:'none'}}>Sign Up</Link></NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        </div> 
+        
+        }
+        
+        
+
+        
          
           <Route exact path="/" render={routeProps => 
           <Homepage {...routeProps}
@@ -187,8 +190,7 @@ _logInAndPassNewUser = (user) => {
 
          
           
-        </div>
-        </div>
+      </Body>
     </Router>
      
     

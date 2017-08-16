@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom'
 
+import styled from 'styled-components';
+
+
+const Container = styled.div`
+        margin-top: 50px;
+    }
+  `  
+
+
 class Signup extends Component {
     constructor(){
         super();
@@ -41,7 +50,7 @@ class Signup extends Component {
             return <Redirect to={`/user/${this.state.userId}`}/>
         } else {
         return (
-     <div>
+            <Container>
                 <h1>Create A New User</h1>
                  <form onSubmit={this._handleSubmit}>
                     <div>
@@ -63,7 +72,7 @@ class Signup extends Component {
                     </div>
                     <input type='submit'/>
                 </form>
-            </div>
+            </Container>
         );
         }
     }
