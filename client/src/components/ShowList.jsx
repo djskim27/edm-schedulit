@@ -43,7 +43,7 @@ class ShowList extends Component {
                     
                     <ArtistImage >
                         <inlineDiv>
-                            <p style={{color:'white'}}>{show.stringDate} / {show.name} / {show.city}</p>
+                            <p style={{color:'white'}}>{show.stringDate} - {show.name} - {show.city}</p>
                         </inlineDiv>
                         <Link to={`/show/${show._id}`}>
                         <img src={show.artistList[0].imgUrl} />
