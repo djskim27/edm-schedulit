@@ -7,6 +7,28 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import UserProfile from './components/UserProfile'
 import EditUserForm from './components/EditUserForm'
+import {Button, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
+
+const navbar = (
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <img src='http://i.imgur.com/RCMqcno.png'/>
+      </Navbar.Brand>
+    </Navbar.Header>
+    <Nav>
+      <NavItem eventKey={1} href="#">Link</NavItem>
+      <NavItem eventKey={2} href="#">Link</NavItem>
+      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+        <MenuItem eventKey={3.1}>Action</MenuItem>
+        <MenuItem eventKey={3.2}>Another action</MenuItem>
+        <MenuItem eventKey={3.3}>Something else here</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey={3.4}>Separated link</MenuItem>
+      </NavDropdown>
+    </Nav>
+  </Navbar>
+);
 
 
 class App extends Component {
@@ -87,8 +109,9 @@ _logInAndPassNewUser = (user) => {
 
     <Router>
       <div>
+        {navbar}
         <div>
-       
+        <Button bsStyle="success">Success</Button>
           {this.state.loggedIn ? 
           <div>
           <Link to={`/user/${this.state.user._id}/shows`}>Home</Link>
