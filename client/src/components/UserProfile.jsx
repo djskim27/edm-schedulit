@@ -126,7 +126,7 @@ class UserProfile extends Component {
                        
                     
                     {showsList.length === 0 ?
-                        <div>You have no shows!</div>
+                        <div style={{color:'white', fontSize: '20px', textAlign:'center'}}>You have no shows, go get LIT!</div>
                         :
                         <UserShowList
                             shows={showsList}

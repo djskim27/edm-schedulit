@@ -70,10 +70,10 @@ export default class UserShow extends Component {
             <DivAround>
             <Container>
                 <ArtistImage>
-                    <img src={this.props.show.artistList[0].imgUrl}/>
+                    <a href={this.props.show.eventPage} target='blank'><img src={this.props.show.artistList[0].imgUrl}/></a>
                    <div>
                     <div style={{color:'white'}}>
-                    {this.props.show.date}
+                    {this.props.show.stringDate}
                     </div>
                     <div style={{color:'white'}}>
                     {this.props.show.name}
