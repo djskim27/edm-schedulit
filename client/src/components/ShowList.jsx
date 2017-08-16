@@ -15,11 +15,18 @@ const ArtistImage = styled.div`
         width: 250px;
     }
 
-`
-const Container = styled.div`
+    img:hover {
+        opacity: 0.5;
+    }
 
 `
-
+const showContainer = styled.div`
+    display: inline-block;
+    padding: 20px;
+`
+const showListContainer = styled.div`
+    width: 800px;
+`
 
 class ShowList extends Component {
     
@@ -36,7 +43,7 @@ class ShowList extends Component {
         const showComponent = orderedDates.map((show, i) => {
     
             return(
-                <div key={i} style={{display: 'inline-block'}}>
+                <div key={i} style={{display: 'inline-block', padding:'30px'}}>
                     
                     <ArtistImage >
                         <div>
@@ -58,9 +65,9 @@ class ShowList extends Component {
         return(
             <div>
                 <Logo src='http://i.imgur.com/RCMqcno.png'/>
-                <div>
+                <showListContainer>
                 {showComponent}
-                </div>
+                </showListContainer>
             </div>
         )
     }

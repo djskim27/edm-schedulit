@@ -10,22 +10,7 @@ import EditUserForm from './components/EditUserForm';
 import {Button, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import styled from 'styled-components';
 
-const navBarStyle = {
-  background: 'rgba(0,0,0,0.5)'
-}
 
-const logoStyle = {
-  width: '100px'
-}
-
-
-const Body = styled.div`
-  background: url('https://vishwajardosh.files.wordpress.com/2014/10/jadr2.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-`
 
 class App extends Component {
   constructor(){

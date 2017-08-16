@@ -3,7 +3,9 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import styled from 'styled-components';
 
-
+const showContainer = styled.div`
+padding: 20px;
+`
 class Show extends Component {
     constructor() {
         super();
