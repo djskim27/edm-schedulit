@@ -19,14 +19,18 @@ connection.on('error', (err) => {
 
 
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/client/build/'));
 
 
 const showController = require('./controllers/show.js');
 app.use('/api/shows', showController);
 
 const userController = require('./controllers/user.js');
-
 app.use('/api/user', userController);
+
+app.get('/', (req,res) => {
+    res.sendFile(__dirname + '/client/build/index.html')
+  })
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
