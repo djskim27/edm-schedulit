@@ -11,7 +11,7 @@ import {Button, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstr
 import styled from 'styled-components';
 
 const navBarStyle = {
-  background: "rgba(220, 115, 11, 0.5)"
+  background: 'rgba(0,0,0,0.5)'
 }
 
 const logoStyle = {
@@ -20,19 +20,12 @@ const logoStyle = {
 
 
 const Body = styled.div`
-  background: url('https://s-media-cache-ak0.pinimg.com/originals/b6/58/41/b658411959379636d322b0e63a19bba7.jpg') no-repeat center center fixed; 
+  background: url('https://vishwajardosh.files.wordpress.com/2014/10/jadr2.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 `
-
-
-
-
-  
-
-
 
 class App extends Component {
   constructor(){
@@ -88,13 +81,13 @@ _logInAndPassNewUser = (user) => {
 
   render() {
     return (
-
+   
     <Router>
       
-      <Body>
+      <div>
         {this.state.loggedIn ? 
         <div>
-        <Navbar inverse collapseOnSelect fixedTop style={navBarStyle}>
+        <Navbar inverse collapseOnSelect fixedTop >
           <Navbar.Header>
          
             <Navbar.Brand>
@@ -105,8 +98,8 @@ _logInAndPassNewUser = (user) => {
           <Navbar.Collapse>
         
             <Nav pullRight>
-              <NavItem eventKey={1}><Link to={`/user/${this.state.user._id}`} style={{textDecoration:'none'}}>{this.state.user.userName}</Link></NavItem>
-              <NavItem eventKey={2}><Link to="/" onClick={this._logOut} style={{textDecoration:'none'}}>Log Out</Link></NavItem>
+              <Navbar.Brand><Link to={`/user/${this.state.user._id}`} style={{textDecoration:'none'}}>{this.state.user.userName}</Link></Navbar.Brand>
+              <Navbar.Brand><Link to="/" onClick={this._logOut} style={{textDecoration:'none'}}>Log Out</Link> </Navbar.Brand>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -123,18 +116,14 @@ _logInAndPassNewUser = (user) => {
           <Navbar.Collapse>
         
             <Nav pullRight>
-              <NavItem eventKey={1}><Link to="/login" style={{textDecoration:'none'}}>Login</Link></NavItem>
-              <NavItem eventKey={2}> <Link to="/signup" style={{textDecoration:'none'}}>Sign Up</Link></NavItem>
+               <Navbar.Brand><Link to="/login" style={{textDecoration:'none'}}>Login</Link></Navbar.Brand>
+              <Navbar.Brand> <Link to="/signup" style={{textDecoration:'none'}}>Sign Up</Link> </Navbar.Brand>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
         </div> 
         
         }
-        
-        
-
-        
          
           <Route exact path="/" render={routeProps => 
           <Homepage {...routeProps}
@@ -183,14 +172,8 @@ _logInAndPassNewUser = (user) => {
             setLoggedInUser={this._setLoggedInUser}
             updateUsers={this._updateUsers}
             />} />
-
           
-
-    
-
-         
-          
-      </Body>
+      </div>
     </Router>
      
     

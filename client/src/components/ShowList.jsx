@@ -4,13 +4,19 @@ import styled from 'styled-components';
 import Show from './Show';
 
 
-
+const Logo = styled.img`
+width: 300px;
+height: 100px;
+`
 const ArtistImage = styled.div`
         text-align: center;
     img {
         height: 250px;
         width: 250px;
     }
+
+`
+const Container = styled.div`
 
 `
 
@@ -30,19 +36,18 @@ class ShowList extends Component {
         const showComponent = orderedDates.map((show, i) => {
     
             return(
-                <div key={i}>
+                <div key={i} style={{display: 'inline-block'}}>
                     
                     <ArtistImage >
                         <div>
-                            {show.name}
+                            <p style={{color:'white'}}>{show.date}</p>
                         </div>
                         <div>
-                            {show.date}
+                            <p style={{color:'white'}}>{show.name}</p>
                         </div>
                         <Link to={`/show/${show._id}`}>
                         <img src={show.artistList[0].imgUrl} />
                         </Link>
-                      
                     </ArtistImage>
                 </div>
             )
@@ -52,9 +57,10 @@ class ShowList extends Component {
 
         return(
             <div>
-                <h1>EDM Shows</h1>
+                <Logo src='http://i.imgur.com/RCMqcno.png'/>
+                <div>
                 {showComponent}
-                
+                </div>
             </div>
         )
     }

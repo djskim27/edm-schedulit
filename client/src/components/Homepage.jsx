@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
         margin-top: 50px;
+        text-align: center;
     }
   `  
 
@@ -55,9 +56,11 @@ class Homepage extends Component {
 
     render() {
         return (
+           
             <Container>
                 <ShowList shows={this.state.shows} />
             </Container>
+           
         )
     }
 }
