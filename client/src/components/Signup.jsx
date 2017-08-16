@@ -5,11 +5,16 @@ import {Redirect} from 'react-router-dom'
 import styled from 'styled-components';
 
 
+const HigherContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+`
 const Container = styled.div`
         margin-top: 50px;
     }
   `  
-
 
 class Signup extends Component {
     constructor(){
@@ -47,11 +52,12 @@ class Signup extends Component {
     };
     render() {
         if(this.state.redirect){
-            return <Redirect to={`/user/${this.state.userId}`}/>
+            return <Redirect to={`/user/${this.state.userId}/shows`}/>
         } else {
         return (
+            <HigherContainer>
             <Container>
-                <h1>Create A New User</h1>
+                <h1 style={{color: 'white'}}>Create A New User</h1>
                  <form onSubmit={this._handleSubmit}>
                     <div>
                     
@@ -73,6 +79,7 @@ class Signup extends Component {
                     <input type='submit'/>
                 </form>
             </Container>
+            </HigherContainer>
         );
         }
     }

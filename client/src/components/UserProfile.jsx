@@ -2,9 +2,40 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect, Link } from 'react-router-dom';
 import UserShowList from './UserShowList';
-import styled from 'styled-component';
+import styled from 'styled-components';
 
+const ProfileContainer = styled.div`
+    margin-top: 6%;
+   font: white;
+   background: rgba(102,51,153, 0.3);
+   border: rgba(255,255,255,0.5) 10px solid;
+   border-radius: 10px;
+   padding: 10px
+`
+const ButtonDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    button {
+    background-color: rgba(102,51,153, 1); 
+    border: none;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 10px;
+    margin: 5px 5px
+    }
 
+    button:hover {
+    background-color: rgba(102,51,153, 0.4); /* Green */
+    color: white;
+    }
+`
+const EventsContainer = styled.div`
+
+`
 
 class UserProfile extends Component {
     constructor() {
@@ -74,16 +105,26 @@ class UserProfile extends Component {
         } else {
             return (
                 <div>
-                    <div>Username: {username}</div>
-                    <div>First Name: {firstName}</div>
-                    <div>Last Name: {lastName}</div>
-                    <div>Email: {email}</div>
-                    <div>
-                        <Link to={`/user/${userId}/edit`}><input type='submit' value="Edit User" /></Link>
+                
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                        <ProfileContainer>
+                        <h1 style={{color:'white'}}>{username}'s Profile Info</h1>
+                        
+                        <div style={{color:'white'}}>First Name: {firstName}</div>
+                        
+                        <div style={{color:'white'}}>Last Name: {lastName}</div>
+                        
+                        <div style={{color:'white'}}>Email: {email}</div>
+                      </ProfileContainer>
                     </div>
-                    <div>
-                        <input type='submit' value="Delete User" onClick={this._deleteUser} />
-                    </div>
+                
+                    <ButtonDiv>
+                        <Link to={`/user/${userId}/edit`}><button>Edit Profile</button></Link>
+                        <button onClick={this._deleteUser}>Delete Profile</button>
+                    </ButtonDiv>
+                    
+                       
+                    
                     {showsList.length === 0 ?
                         <div>You have no shows!</div>
                         :
@@ -92,7 +133,9 @@ class UserProfile extends Component {
                             userId={userId}
                             deleteShow={this._deleteShow}
                             redirect={this.state.redirect}
+                            username={username}
                              />}
+              
                 </div>
             );
         }

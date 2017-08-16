@@ -3,7 +3,16 @@ import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import UserShow from './UserShow'
 
+const ShowContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+`
+const ListContainer = styled.div`
+    width: 600px;
+    background: rgba(22,179,225,0.3)
+`
 class UserShowList extends Component {
     
 
@@ -29,9 +38,12 @@ class UserShowList extends Component {
     
 
         return (
-            <div>
+            <ShowContainer>
+                <ListContainer>
+                <h1 style={{color:'white', textAlign:'center'}}>{this.props.username}'s Show Schedule</h1>
                 {showComponent}
-            </div>
+                </ListContainer>
+            </ShowContainer>
         );
         
     }
