@@ -39,7 +39,11 @@ class Show extends Component {
     }
     _addEventToUser = (e) => {
         e.preventDefault();
-        axios.post(`/api/user/${this.props.user._id}/add/${this.props.match.params.showId}`)
+        axios.post(`/api/user/${this.props.user._id}/add/${this.props.match.params.showId}`).then((res)=>{
+            this.setState
+        }).catch((err)=>{
+            console.log(err);
+        })
     }
 
     render(){
