@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import UserShow from './UserShow'
 
-const ArtistImage = styled.div`
-        
-    img {
-        display:inline-block;
-        height: 50px;
-        width: 50px;
-    }
 
-`
-const inlineDiv = styled.div`
-    display: inline-block;
-`
 class UserShowList extends Component {
-
+    
 
   
+  
     render() {
+        const userId = this.props.userId
         const shows = this.props.shows;
         const orderedDates = shows.sort(function(a,b){
  
@@ -31,25 +22,18 @@ class UserShowList extends Component {
          const showComponent = orderedDates.map((show, i) => {
     
             return(
-                <ArtistImage key={i}>
-                    <img src={show.artistList[0].imgUrl}/>
-                    <inlineDiv>
-                    <div>
-                    {show.date}
-                    </div>
-                    <div>
-                    {show.name}
-                    </div>
-                    </inlineDiv>
-                </ArtistImage>
+                <UserShow show={show} userId={userId} key={i}/>
             )
         })
+
+    
 
         return (
             <div>
                 {showComponent}
             </div>
         );
+        
     }
 }
 

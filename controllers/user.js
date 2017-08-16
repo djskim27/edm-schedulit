@@ -34,21 +34,22 @@ router.get('/:userId/shows/:showId', (req,res) => {
         const foundShow = user.showsList.find((show)=>{
             return show.id === req.params.showId
         })
-        console.log(foundShow);
+        
         res.json(foundShow)
     }).catch(err => console.log(err))
 })
 
 //Delete Specific User Event
-router.get('/:userId/shows/:showId/delete', (req,res) => {
+router.delete('/:userId/shows/:showId/delete', (req,res) => {
     User.findById(req.params.userId).then((user)=> {
         // const showsList = user.showsList
         const Index = user.showsList.findIndex((show)=>{
             return show.id === req.params.showId
         })
-        
+        console.log(Index);
        user.showsList.splice(Index, 1);
        user.save();
+       res.send(200);
       
     }).catch(err => console.log(err))
 })

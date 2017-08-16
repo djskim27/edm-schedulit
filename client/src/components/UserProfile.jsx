@@ -33,7 +33,8 @@ class UserProfile extends Component {
                     email: res.data.email,
                     password: res.data.password,
                     showsList: res.data.showsList
-                }
+                },
+                redirect: false
             })
         }).catch((err) => {
             console.log(err);
@@ -86,7 +87,10 @@ class UserProfile extends Component {
                         :
                         <UserShowList
                             shows={showsList}
-                            userId={userId} />}
+                            userId={userId}
+                            deleteShow={this._deleteShow}
+                            redirect={this.state.redirect}
+                             />}
                 </div>
             );
         }
