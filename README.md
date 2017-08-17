@@ -6,7 +6,7 @@ Atlanta has become a booming scene for the Electronic Dance Music industry! Bein
 
 This MERN CRUD app is a basic model for how I (as a frequent EDM event attendant) would want to keep track of AND schedule all EDM events of personal interest. On the homepage, users can see several events listed in order of date and add them to their personal event schedule. ScheduLIT also has Soundcloud and Youtube links for specific DJs/artists for users to help influence themselves in adding shows!
 
-##Features of ScheduLIT
+## Features of ScheduLIT
 
 * User can log in
 * User can log out
@@ -30,12 +30,12 @@ This MERN CRUD app is a basic model for how I (as a frequent EDM event attendant
 
 
 
-##Technologies Used
+## Technologies Used
 
 * MERN (Mongoose/ExpressJS/ReactJS/NodeJs)
 * React-Bootstrap
 
-##Future Development
+## Future Development
 
 * Add a search function for events so users can search by Location OR Artist
 * Geolocation so local events pop up first for every user
