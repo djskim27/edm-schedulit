@@ -31,34 +31,39 @@ componentWillMount(){
 }
 
 _updateUsers = (data) => {
+
   this.setState({users: data})
 }
 
 
 _logIn = () => {
+
     this.setState({
       loggedIn: true
       
     })
-        }
+}
 
 _logOut = () => {
   
   this.setState({loggedIn: false});
     
-  
 }
+
 _setLoggedInUser = (user) => {
+
   this.setState({
     user: user
   })
 }
 
 _logInAndPassNewUser = (user) => {
+
   this.setState({
     loggedIn:true,
     user: user
   })
+  
 }
 
 
