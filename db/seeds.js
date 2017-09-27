@@ -157,20 +157,20 @@ adventureClubAtlanta.save(function(err) {
     console.log('show created!');
 });
 
-const alanWalkerAtlanta = new Show({
+const alanWalkerOrlando = new Show({
     name: 'Alan Walker',
-    date: moment('09/01/2017', 'MM/DD/YYYY', true).format(), 
-    stringDate: 'FRI, SEPT 1',
-    city: 'Atlanta',
-    state: 'Georgia',
-    venue: 'Opera Night Club',
-    eventPage: 'https://www.eventbrite.com/e/alan-walker-illuminate-090117-tickets-34809662638',
+    date: moment('11/10/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'FRI, NOV 10',
+    city: 'Orlando',
+    state: 'Florida',
+    venue: 'Tinker Field',
+    eventPage: 'https://orlando.electricdaisycarnival.com/tickets/',
     artistList: [alanWalker]
 
 
 });
 
-alanWalkerAtlanta.save(function(err) {
+alanWalkerOrlando.save(function(err) {
     if (err) console.log(err);
     console.log('show created!');
 });
@@ -178,7 +178,7 @@ alanWalkerAtlanta.save(function(err) {
 const krewellaAtlanta = new Show({
     name: 'Krewella',
     date: moment('10/19/2017', 'MM/DD/YYYY', true).format(),
-    stringDate: 'THURS, OCT 19', 
+    stringDate: 'THU, OCT 19', 
     city: 'Atlanta',
     state: 'Georgia',
     venue: 'Tabernacle',
@@ -244,20 +244,20 @@ krewellaAtlanta.save(function(err) {
 //     console.log('show created!');
 // });
 
-const slanderAtlanta = new Show({
+const slanderVegas = new Show({
     name: 'Slander',
-    date: moment('09/15/2017', 'MM/DD/YYYY', true).format(),
-    stringDate:'FRI, SEPT 15', 
-    city: 'Atlanta',
-    state: 'Georgia',
-    venue: 'Opera Night Club',
-    eventPage: 'https://edmtrain.com/georgia?event=64475&tickets',
+    date: moment('11/03/2017', 'MM/DD/YYYY', true).format(),
+    stringDate:'FRI, NOV 03', 
+    city: 'Las Vegas',
+    state: 'Nevada',
+    venue: 'Intrigue',
+    eventPage: 'https://www.ticketfly.com/purchase/event/1566249?utm_medium=946393&q=ef20336c-f862-4a29-8176-db7bf8c7deac&p=75296579-9d92-4f28-a9c0-98999d939557&ts=1506538667&c=ticketfly&e=007323&rt=Safetynet&h=1c745fc3d217c54abc303e258456d65d',
     artistList: [slander]
 
 
 });
 
-slanderAtlanta.save(function(err) {
+slanderVegas.save(function(err) {
     if (err) console.log(err);
     console.log('show created!');
 });
@@ -280,20 +280,20 @@ rlGrimeAtlanta.save(function(err) {
     console.log('show created!');
 });
 
-const flossVegas = new Show({
+const flossAtlanta = new Show({
     name: 'Flosstradamus',
-    date: moment('08/18/2017', 'MM/DD/YYYY', true).format(), 
-    stringDate: 'FRI, AUG 18',
-    city: 'Las Vegas',
-    state: 'Nevada',
-    venue: 'Surrender Nightclub',
-    eventPage: 'https://www.ticketfly.com/purchase/event/1464890?utm_medium=946393&q=b3eaf87a-4121-45ef-98de-0ebdc28b8343&p=84194519-9e98-48df-89f2-0f982297b8f4&ts=1502903037&c=ticketfly&e=007324&rt=Safetynet&h=91c33d8391c28fdc868d15431f9718b2',
+    date: moment('10/12/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'THU, OCT 12',
+    city: 'Atlanta',
+    state: 'Georgia',
+    venue: 'Opera Nightclub',
+    eventPage: 'https://www.eventbrite.com/e/flosstradamus-thursday-october-12th-2017-atlanta-tickets-36971905966',
     artistList: [floss]
 
 
 });
 
-flossVegas.save(function(err) {
+flossAtlanta.save(function(err) {
     if (err) console.log(err);
     console.log('show created!');
 });
@@ -336,12 +336,12 @@ marshmelloVegas.save(function(err) {
 
 const lilJonVegas = new Show({
     name: 'lil Jon',
-    date: moment('08/17/2017', 'MM/DD/YYYY', true).format(), 
-    stringDate: 'THURS, AUG 17',
+    date: moment('11/18/2017', 'MM/DD/YYYY', true).format(), 
+    stringDate: 'SAT, NOV 18',
     city: 'Las Vegas',
     state: 'Nevada',
-    venue: 'Hakkasan',
-    eventPage: 'https://edmtrain.com/nevada?event=64359&tickets',
+    venue: 'Jewel Nightclub',
+    eventPage: 'https://www.wantickets.com/Events/224560/Lil-Jon-At-JEWEL-Nightclub/?affCode=cba4a14ab7fb40039803',
     artistList: [lilJon]
 
 
